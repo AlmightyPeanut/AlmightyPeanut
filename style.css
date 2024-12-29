@@ -1,0 +1,117 @@
+:root {
+    --global-icon-color: #555;
+    --global-icon-hover-color: #77dd77;
+    --global-menu-selected-color: #77dd77;
+    --global-menu-hover-color: #576157;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Helvetica", sans-serif;
+    line-height: 1.5;
+    height: 100%;
+    padding: 0;
+    color: #555;
+}
+
+.content {
+    margin-bottom: 2em;
+    padding: 4em 1em;
+}
+
+footer {
+    background-color: #555;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3em;
+    position: fixed;
+    font-size: 1em;
+    color: #fff;
+}
+
+footer > div {
+    padding: .75em;
+}
+
+h1, h2, strong {
+    color: #333;
+}
+
+h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+h1.my_name {
+    font-weight: normal;
+}
+
+img.profile_picture {
+    float: right;
+    border-radius: 5%;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+p {
+    text-align: justify;
+}
+
+.socials {
+    text-align: center!important;
+}
+
+.contact_icons {
+    font-size: 3em;
+}
+
+.contact_icons a {
+    color: var(--global-icon-color);
+}
+
+.contact_icons a:hover {
+    color: var(--global-icon-hover-color);
+}
+
+.nav_bar > ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #555;
+}
+
+.nav_bar > ul > li {
+    float: left;
+}
+
+.nav_bar > ul > li > p {
+    color: #fff;
+    text-align: right;
+}
+
+.nav_bar > ul > li > a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+.nav_bar a:hover {
+    background-color: var(--global-menu-hover-color);
+}
+
+.nav_bar a.active {
+    background-color: var(--global-menu-selected-color);
+}

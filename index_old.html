@@ -3,21 +3,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="   crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/minty/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <style>
-      :root {
-      }
-
-      footer.fixed-bottom {
-        font-size: 0.75em;
-      }
-    </style>
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -38,12 +28,6 @@
           current_page_index = new_page_index;
           load_content(current_page_index);
           $("#nav_" + page_content_map[new_page_index]).addClass("active");
-
-          if (current_page_index !== 0) {
-            $("#navbar_name").show();
-          } else {
-            $("#navbar_name").hide();
-          }
         }
       }
 
@@ -60,7 +44,6 @@
         $("#footer_include").load("footer.html");
         load_content(current_page_index);
         $("#nav_" + page_content_map[current_page_index]).addClass("active");
-        $("#navbar_name").hide();
 
         $("nav a").on("click", function (e) {
           e.preventDefault();
@@ -73,32 +56,17 @@
     <title>Benedikt Hornig</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-primary" data-bs-theme="dark">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav me-auto mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#" data-page-index="0" id="nav_home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-page-index="1" id="nav_projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-page-index="2" id="nav_resume">Resume</a></li>
-          </ul>
-          <ul class="navbar-nav">
-            <li id="navbar_name" class="nav-item"><span class="nav-link">Benedikt Hornig</span></li>
-          </ul>
-        </div>
-      </div>
+    <nav class="nav_bar">
+      <ul>
+        <li><a href="#" data-page-index="0" id="nav_home">Home</a></li>
+        <li><a href="#" data-page-index="1" id="nav_projects">Projects</a></li>
+        <li><a href="#" data-page-index="2" id="nav_resume">Resume</a></li>
+        <li><p>Benedikt Hornig</p></li>
+      </ul>
     </nav>
 
-    <div class="container-fluid mt-4">
-      <div class="row">
-        <div class="column col-2"></div>
-        <div class="column col-8" id="content"></div>
-        <div class="column col-2"></div>
-      </div>
-    </div>
+    <div id="content" class="content"></div>
 
-    <footer class="fixed-bottom bg-dark text-light" id="footer_include"></footer>
+    <div id="footer_include"></div>
   </body>
 </html>
