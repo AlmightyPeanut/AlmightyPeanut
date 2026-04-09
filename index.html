@@ -4,18 +4,170 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Benedikt Hornig — AI safety researcher with publications at AAMAS 2026 and ECIR 2024, specializing in multi-agent systems, XAI, and game theory.">
+    <meta property="og:title" content="Benedikt Hornig — AI Safety Researcher">
+    <meta property="og:description" content="Entry-level AI researcher with publications at AAMAS 2026 and ECIR 2024, specializing in AI safety, multi-agent systems, and explainable AI.">
+    <meta property="og:image" content="https://www.hornig-ai.com/profile_picture.png">
+    <meta property="og:url" content="https://www.hornig-ai.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Benedikt Hornig — AI Safety Researcher">
+    <meta name="twitter:description" content="AI researcher specializing in AI safety, multi-agent systems, and explainable AI.">
+    <meta name="twitter:image" content="https://www.hornig-ai.com/profile_picture.png">
+    <meta name="color-scheme" content="light dark">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--<link rel="stylesheet" href="style.css">-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="   crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/minty/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link id="theme-stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/minty/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <!-- Prevent FOUC: apply theme before render -->
+    <script>
+      (function() {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        if (theme === 'dark') {
+          document.getElementById('theme-stylesheet').href =
+            'https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/darkly/bootstrap.min.css';
+        }
+      })();
+    </script>
+
     <style>
-      :root {
+      html, body {
+        height: 100%;
       }
 
-      footer.fixed-bottom {
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .main-content {
+        flex: 1;
+      }
+
+      footer {
         font-size: 0.75em;
+        margin-top: auto;
+      }
+
+      #content {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
+
+      #content.fade-out {
+        opacity: 0;
+      }
+
+      /* Hero section */
+      [data-bs-theme="light"] .hero-section {
+        background: linear-gradient(135deg, rgba(120, 194, 173, 0.08) 0%, rgba(120, 194, 173, 0.02) 100%);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      [data-bs-theme="dark"] .hero-section {
+        background: linear-gradient(135deg, rgba(120, 194, 173, 0.08) 0%, rgba(120, 194, 173, 0.02) 100%);
+        box-shadow: 0 1px 3px rgba(255, 255, 255, 0.04);
+      }
+
+      .hero-section {
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+
+      /* Project cards */
+      .card.project-card {
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      [data-bs-theme="light"] .card.project-card {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      [data-bs-theme="light"] .card.project-card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+      }
+
+      [data-bs-theme="dark"] .card.project-card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      [data-bs-theme="dark"] .card.project-card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        transform: translateY(-2px);
+      }
+
+      /* Fix project title overflow */
+      .card-title {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+
+      /* Skills */
+      .skill-group {
+        margin-bottom: 1rem;
+      }
+
+      .skill-group h6 {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .skill-badge {
+        display: inline-block;
+        padding: 0.3em 0.7em;
+        margin: 0.15rem;
+        border-radius: 2rem;
+        font-size: 0.85em;
+      }
+
+      [data-bs-theme="light"] .skill-badge {
+        background-color: #e9ecef;
+        color: #495057;
+      }
+
+      [data-bs-theme="dark"] .skill-badge {
+        background-color: #343a40;
+        color: #ced4da;
+      }
+
+      /* Normalize fonts across themes (Minty uses Montserrat, Darkly uses Lato) */
+      body, .navbar, .nav-link, h1, h2, h3, h4, h5, h6, p, li, span, a, td, th, label, input, button, .lead, .card-title, .card-text, .skill-badge {
+        font-family: "Montserrat", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+      }
+
+      /* Normalize navbar height across themes */
+      .navbar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+      }
+
+      .navbar .nav-link {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      /* Theme toggle button */
+      .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.85);
+        transition: color 0.2s;
+      }
+
+      .theme-toggle:hover {
+        color: #fff;
       }
     </style>
 
@@ -36,7 +188,6 @@
         if (new_page_index !== current_page_index) {
           $("#nav_" + page_content_map[current_page_index]).removeClass("active");
           current_page_index = new_page_index;
-          load_content(current_page_index);
           $("#nav_" + page_content_map[new_page_index]).addClass("active");
 
           if (current_page_index !== 0) {
@@ -44,23 +195,71 @@
           } else {
             $("#navbar_name").hide();
           }
+
+          load_content(current_page_index);
         }
       }
 
       function load_content(page_index) {
         const content_file = page_content_map[page_index] + "_content.html";
         if (content_file) {
-          $("#content").load(content_file);
+          const $content = $("#content");
+          $content.addClass("fade-out");
+          setTimeout(function() {
+            $content.load(content_file, function() {
+              window.scrollTo(0, 0);
+              $content.removeClass("fade-out");
+            });
+          }, 200);
         } else {
           console.error("No content file mapped for page index: ", page_index);
         }
       }
+
+      function getTheme() {
+        var saved = localStorage.getItem('theme');
+        if (saved) return saved;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        var lightUrl = 'https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/minty/bootstrap.min.css';
+        var darkUrl = 'https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/darkly/bootstrap.min.css';
+        document.getElementById('theme-stylesheet').href = theme === 'dark' ? darkUrl : lightUrl;
+
+        // Update toggle icon
+        var icon = document.getElementById('theme-icon');
+        if (icon) {
+          icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+      }
+
+      function toggleTheme() {
+        var current = getTheme();
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      }
+
+      // Listen for OS theme changes (only if no manual override)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
 
       $(function () {
         $("#footer_include").load("footer.html");
         load_content(current_page_index);
         $("#nav_" + page_content_map[current_page_index]).addClass("active");
         $("#navbar_name").hide();
+
+        // Set initial icon state
+        var icon = document.getElementById('theme-icon');
+        if (icon) {
+          icon.className = getTheme() === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
 
         $("nav a").on("click", function (e) {
           e.preventDefault();
@@ -86,19 +285,24 @@
           </ul>
           <ul class="navbar-nav">
             <li id="navbar_name" class="nav-item"><span class="nav-link">Benedikt Hornig</span></li>
+            <li class="nav-item">
+              <button class="theme-toggle nav-link" onclick="toggleTheme()" title="Toggle dark mode" aria-label="Toggle dark mode">
+                <i id="theme-icon" class="fas fa-moon"></i>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid mt-4">
+    <div class="container-fluid mt-4 main-content">
       <div class="row">
-        <div class="column col-2"></div>
-        <div class="column col-8" id="content"></div>
-        <div class="column col-2"></div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 px-3 px-lg-0" id="content"></div>
+        <div class="col-lg-2"></div>
       </div>
     </div>
 
-    <footer class="fixed-bottom bg-dark text-light" id="footer_include"></footer>
+    <footer class="bg-dark text-light py-2" id="footer_include"></footer>
   </body>
 </html>
